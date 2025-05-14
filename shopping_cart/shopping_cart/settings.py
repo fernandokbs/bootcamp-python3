@@ -76,8 +76,12 @@ WSGI_APPLICATION = "shopping_cart.wsgi.application"
 
 DATABASES = {
     "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'shopping_cart',
+        'USER': 'root', 
+        'PASSWORD': 'rootpassword', 
+        'HOST': 'db',
+        'PORT': '3306',
     }
 }
 

@@ -6,8 +6,18 @@ services:
       context: .
     ports:
       - "8087:8000"
-    command: >
-      sh -c "python /shopping_cart/shopping_cart/manage.py makemigrations &&
-             python /shopping_cart/shopping_cart/manage.py migrate &&
-             python /shopping_cart/shopping_cart/manage.py seed_data --carts 3 &&
-             python /shopping_cart/shopping_cart/manage.py runserver 0.0.0.0:8000"
+    depends_on:
+      - db
+
+  db:
+    image: mysql
+    environment:
+      MYSQL_DATABASE: shopping_cart
+      MYSQL_ROOT_PASSWORD: rootpassword
+    volumes:
+      - mysql_data:/var/lib/mysql
+    ports:
+      - "3309:3306"
+
+volumes:
+  mysql_data:
