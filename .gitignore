@@ -1,3 +1,5 @@
 env
 shopping_cart/api/__pycache__
 shopping_cart/shopping_cart/__pycache__
+shopping_cart/api/management/commands/__pycache__
+shopping_cart/db.sqlite3

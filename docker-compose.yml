@@ -6,6 +6,8 @@ services:
       context: .
     ports:
       - "8087:8000"
+    volumes:
+      - .:/shopping_cart
     command: >
       sh -c "python /shopping_cart/shopping_cart/manage.py makemigrations &&
              python /shopping_cart/shopping_cart/manage.py migrate &&
