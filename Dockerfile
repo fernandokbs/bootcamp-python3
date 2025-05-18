@@ -9,11 +9,9 @@ RUN apt-get update && apt-get install -y \
     pkg-config \
  && rm -rf /var/lib/apt/lists/*
 
-RUN mkdir /shopping_cart
+COPY . .
 
 WORKDIR /shopping_cart
-
-COPY . .
 
 COPY ./requirements.txt /requirements.txt
 
@@ -25,4 +23,5 @@ RUN chmod +x /app/entrypoint.sh
 
 EXPOSE 8000
 
+# CMD ["ls", "-al"]
 ENTRYPOINT ["/app/entrypoint.sh"]
