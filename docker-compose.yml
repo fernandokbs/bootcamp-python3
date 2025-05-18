@@ -1,6 +1,15 @@
 version: "3.8"
 
 services:
+  nginx:
+    image: nginx
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/conf.d/default.conf
+    depends_on:
+      - django_recipe_api
+
   django_recipe_api:
     build:
       context: .
