@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -77,10 +78,10 @@ WSGI_APPLICATION = "shopping_cart.wsgi.application"
 DATABASES = {
     "default": {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'shopping_cart',
+        'NAME': os.getenv('DB_NAME'),
         'USER': 'root', 
-        'PASSWORD': 'rootpassword', 
-        'HOST': 'db',
+        'PASSWORD': os.getenv('DB_PASSWORD'), 
+        'HOST': os.getenv('DB_HOST'),
         'PORT': '3306',
     }
 }

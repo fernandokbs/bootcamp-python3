@@ -13,6 +13,10 @@ services:
   django_recipe_api:
     build:
       context: .
+    env_file: .env
+    environment:
+      - DB_PASSWORD=${DB_PASSWORD}
+      - DB_HOST=${DB_HOST}
     ports:
       - "8087:8000"
     depends_on:
@@ -20,9 +24,10 @@ services:
 
   db:
     image: mysql
+    env_file: .env
     environment:
-      MYSQL_DATABASE: shopping_cart
-      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_DATABASE: ${DB_NAME}
+      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
     volumes:
       - mysql_data:/var/lib/mysql
     ports:
