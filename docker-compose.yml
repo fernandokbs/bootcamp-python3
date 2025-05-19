@@ -5,7 +5,7 @@ services:
     build:
       context: .
     ports:
-      - "8087:8000"
+      - "8487:8000"
     volumes:
       - .:/shopping_cart
     command: >
