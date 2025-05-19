@@ -7,6 +7,7 @@ from .views import (
 )
 
 urlpatterns = [
+    path("productos/", ProductListView.as_view()),
     path("products/", ProductListView.as_view()),
     path("cart/<int:id>/", CartDetailView.as_view()),
     path("cart/<int:id>/add/", CartItemCreateView.as_view()),
