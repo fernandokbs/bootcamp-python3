@@ -1,11 +1,6 @@
 #!/bin/sh
 set -e
 
-echo "Esperando a MySQL..."
-until mysqladmin ping -h db -u root -prootpassword --silent; do
-  sleep 2
-done
-
 echo "Aplicando migraciones..."
 python manage.py makemigrations
 python manage.py migrate
